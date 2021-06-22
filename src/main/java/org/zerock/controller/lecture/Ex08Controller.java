@@ -26,7 +26,7 @@ public class Ex08Controller {
 	public void method02(Model model) {
 		log.info("ex08, sub02 method");
 		User user = new User();
-		user.setName("bts");
+		user.setId("bts");
 		user.setAge(22);
 		
 		model.addAttribute("user", user);
@@ -38,7 +38,7 @@ public class Ex08Controller {
 		log.info("ex08, sub03 method");
 		
 		User user = new User();
-		user.setName("Korea");
+		user.setId("Korea");
 		user.setAge(5000);
 		
 		model.addAttribute(user);

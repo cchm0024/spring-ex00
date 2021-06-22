@@ -36,8 +36,8 @@ public class Ex09Controller {
 	//	rttr.addAttribute("user", new User()); 
 		User user = new User();
 		user.setAge(3333);
-		user.setName("seoul");
-		rttr.addAllAttributes("user", user);
+		user.setId("seoul");
+		rttr.addAttribute("user", user);
 		
 			return "redirect:sub04";
 		}

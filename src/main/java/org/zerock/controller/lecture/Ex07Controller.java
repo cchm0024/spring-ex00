@@ -24,7 +24,7 @@ public class Ex07Controller {
 		log.info("ex07, sub02 method");
 		
 		User user = new User();
-		user.setName("edward");
+		user.setId("edward");
 		user.setAge(99);
 		
 		return user.toString();
@@ -35,10 +35,10 @@ public class Ex07Controller {
 		log.info("ex07, sub03 method");
 		
 		User user = new User();
-		user.setName("donald");
+		user.setId("donald");
 		user.setAge(99);
 		
-		return "{\"id\":" + "\"" + user.getName() + "\", " + "\"age\":" + user.getAge() + "}";
+		return "{\"id\":" + "\"" + user.getId() + "\", " + "\"age\":" + user.getAge() + "}";
 	}
 	
 	@RequestMapping("/sub04")
@@ -46,7 +46,7 @@ public class Ex07Controller {
 		log.info("ex07, sub04 method");
 		
 		User user = new User();
-		user.setName("edward");
+		user.setId("edward");
 		user.setAge(99);
 	
 		return user;
