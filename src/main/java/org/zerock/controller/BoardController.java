@@ -55,7 +55,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	// 10.2.4
+	// 10.2.4 수정
 	@PostMapping("/modify")
 	public String modify(BoardVO board, RedirectAttributes rttr) {
 		log.info("modify: " + board);
@@ -66,7 +66,7 @@ public class BoardController {
 		return "redirect:/board/list";
 	}
 	
-	// 10.2.5
+	// 10.2.5 삭제
 	@PostMapping("/remove")
 	public String remove(@RequestParam("bno") Long bno, RedirectAttributes rttr) {
 		if (service.remove(bno)) {
