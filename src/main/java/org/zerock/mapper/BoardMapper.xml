@@ -8,6 +8,7 @@
   <select id="getList" resultType="org.zerock.domain.BoardVO">
     
     <![CDATA[
+    
     SELECT 
     	bno bno,
     	title title,
@@ -17,10 +18,11 @@
     	updatedate updateDate
     
      FROM tbl_board
-    
-    WHERE bno > 0 ORDER BY bno DESC
-    
+     
+     WHERE bno > 0 ORDER BY bno DESC
+     
     ]]>
+    
   </select>
   
   <insert id="insert">

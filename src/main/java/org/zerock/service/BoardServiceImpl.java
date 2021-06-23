@@ -11,12 +11,12 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Service
-public class BoardServiceImpl implements BoardService{
+public class BoardServiceImpl implements BoardService {
 
 	private BoardMapper mapper;
 	
 //	@Autowired
-//	public public BoardServiceImpl(BoardMapper mapper) {
+//	public BoardServiceImpl(BoardMapper mapper) {
 //		this.mapper = mapper;
 //	}
 	
@@ -24,7 +24,6 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void register(BoardVO board) {
 		mapper.insertSelectKey(board);
-		
 	}
 
 	@Override
@@ -35,11 +34,10 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public boolean modify(BoardVO board) {
 		return mapper.update(board) == 1;
-
 	}
 
 	@Override
-	public boolean remove(long bno) {
+	public boolean remove(Long bno) {
 		return mapper.delete(bno) == 1;
 	}
 
@@ -47,5 +45,12 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getList() {
 		return mapper.getList();
 	}
-
+	
 }
+
+
+
+
+
+
+
