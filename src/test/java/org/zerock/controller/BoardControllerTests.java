@@ -14,6 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Mapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +29,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.zerock.domain.BoardVO;
+import org.zerock.domain.Criteria;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j;
@@ -53,7 +55,9 @@ public class BoardControllerTests {
 
 	@Test
 	public void testList() throws Exception {
-		ModelAndView mav = mockMvc.perform(MockMvcRequestBuilders.get("/board/list"))
+		ModelAndView mav = mockMvc.perform(MockMvcRequestBuilders.get("/board/list")
+					.param("pageNum","2")
+					.param("amount", "7"))
 				.andReturn()
 				.getModelAndView();
 
@@ -65,6 +69,13 @@ public class BoardControllerTests {
 		Object o = map.get("list");
 		assertNotNull(o);
 		assertTrue(o instanceof List<?>);
+		
+		List<BoardVO> list = (List<BoardVO>) o;
+		assertEquals(7, list.size());
+		
+//		Object o2 = map.get("Criteria");
+//		assertNotNull(o2);
+		
 		
 //		fail("fail");
 	}
@@ -130,4 +141,5 @@ public class BoardControllerTests {
 			.andExpect(flash().attribute("result", "success"));
 		
 	}
+	
 }
