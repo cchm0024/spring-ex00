@@ -78,7 +78,6 @@ public class Test2MapperTests {
 		list.add("user00");
 		list.add("user01");
 		
-		mapper.sql7(list);
 	}
 
 
