@@ -16,4 +16,6 @@ public class BoardVO {
 	
 	private int replyCnt;
 	
+	private String fileName;
+//	private MultipartFile file;
 }
