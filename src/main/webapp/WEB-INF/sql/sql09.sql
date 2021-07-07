@@ -8,3 +8,21 @@ create table persistent_logins (
     token varchar(64) not null,
     last_used timestamp not null
 );
+
+desc persistent_logins;
+
+SELECT * FROM tbl_board;
+SELECT * FROM tbl_member;
+SELECT * FROM tbl_reply;
+
+update tbl_board
+SET writer = 'member';
+
+update tbl_reply
+SET replyer = 'member';
+
+ALTER TABLE tbl_board
+ADD FOREIGN KEY (writer) REFERENCES tbl_member(userid);
+
+ALTER TABLE tbl_reply
+ADD FOREIGN KEY (replyer) REFERENCES tbl_member(userid);
