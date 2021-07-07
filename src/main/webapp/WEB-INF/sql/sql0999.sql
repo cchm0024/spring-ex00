@@ -1,0 +1,46 @@
+SELECT * FROM Persons;
+
+DESC Persons;
+
+ALTER TABLE Persons
+ADD PRIMARY KEY (id);
+
+ALTER TABLE Persons
+MODIFY COLUMN id VARCHAR(255) NOT NULL;
+
+ALTER TABLE Persons
+MODIFY COLUMN password VARCHAR(255) NOT NULL;
+
+ALTER TABLE Persons
+MODIFY COLUMN name VARCHAR(255) NOT NULL;
+
+ALTER TABLE Persons
+MODIFY COLUMN nickName VARCHAR(255) NOT NULL;
+
+ALTER TABLE Persons
+MODIFY COLUMN email VARCHAR(255) NOT NULL;
+
+INSERT INTO Persons
+(id, password, name, nickName, email)
+VALUE
+('test3', '123', 'test', 'test1', 'test2');
+
+SELECT * FROM Persons;
+
+CREATE TABLE Board
+(
+	id int PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    body VARCHAR(2047) NOT NULL,
+    memberId VARCHAR(255) NOT NULL,
+    inserted TIMESTAMP DEFAULT NOW()
+);
+
+SELECT * FROM Board;
+
+USE test2;
+ALTER TABLE Board
+ADD FOREIGN KEY (MemberId)
+REFERENCES Persons(id);
+
+USE tbl_board

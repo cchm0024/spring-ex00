@@ -19,9 +19,9 @@
 		<property name="username" value="root"></property>
 		<property name="password" value="wnddkdwjdqhcjfl1"></property>
 		<property name="maximumPoolSize" value="1"></property>
-    </bean>
-    
-    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+	</bean>
+	
+	<bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
 	</bean>
 	
@@ -41,8 +41,6 @@
 	
 	<context:component-scan base-package="org.zerock.service"></context:component-scan>
 	
-	<!--  transaction -->
+	<!-- transaction -->
 	<tx:annotation-driven/>
-	
-	
 </beans>

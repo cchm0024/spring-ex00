@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.zerock.domain.AuthVO;
 import org.zerock.domain.MemberVO;
 
 import lombok.Setter;
@@ -57,7 +58,7 @@ public class MemberMapperTests {
 	
 	@Test
 	public void testInsertAuth() {
-		/*
+	/*
 		AuthVO vo1 = new AuthVO();
 		vo1.setAuth("ROLE_MEMBER");
 		vo1.setUserid("member");
@@ -70,7 +71,7 @@ public class MemberMapperTests {
 		vo1.setAuth("ROLE_ADMIN");
 		vo1.setUserid("admin");
 		mapper.insertAuth(vo1);
-		*/
+	*/	
 	}
 	
 	@Test
