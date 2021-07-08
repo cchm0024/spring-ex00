@@ -107,8 +107,9 @@ var userid = "${pinfo.member.userid}";
         <form>
           <input type="text" value="${board.bno }" readonly hidden id="reply-bno-input1">
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">작성자</label>
-            <input type="text" class="form-control" id="reply-replyer-input1">
+           <label for="recipient-name" class="col-form-label">작성자</label>
+            <input type="text" readonly value="${pinfo.member.userName }" class="form-control" />
+            <input type="hidden" value="${pinfo.member.userid }" class="form-control" id="reply-replyer-input1">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">댓글</label>
@@ -117,8 +118,8 @@ var userid = "${pinfo.member.userid}";
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button id="reply-insert-btn1" type="button" class="btn btn-primary">댓글 입력</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
       </div>
     </div>
   </div>
@@ -140,7 +141,8 @@ var userid = "${pinfo.member.userid}";
           <input type="text" value="${board.bno }" readonly hidden id="reply-bno-input2">
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">작성자</label>
-            <input type="text" class="form-control" id="reply-replyer-input2" readonly>
+            <input id="reply-replyerName-input2" class="form-control" readonly type="text" />
+            <input type="hidden" class="form-control" id="reply-replyer-input2" readonly>
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">댓글</label>
@@ -149,11 +151,11 @@ var userid = "${pinfo.member.userid}";
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <span id="reply-modify-delete-btn-wrapper">
 	        <button id="reply-modify-btn1" type="button" class="btn btn-primary">댓글 수정</button>
 	        <button id="reply-delete-btn1" type="button" class="btn btn-danger">댓글 삭제</button>
         </span>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
       </div>
     </div>
   </div>
