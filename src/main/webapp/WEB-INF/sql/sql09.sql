@@ -11,7 +11,11 @@ create table persistent_logins (
 
 desc persistent_logins;
 
-SELECT * FROM tbl_board;
+SELECT * FROM tbl_board
+ORDER BY bno DESC;
+
+DELETE FROM tbl_board WHERE bno=102;
+
 SELECT * FROM tbl_member;
 SELECT * FROM tbl_reply;
 
@@ -26,3 +30,6 @@ ADD FOREIGN KEY (writer) REFERENCES tbl_member(userid);
 
 ALTER TABLE tbl_reply
 ADD FOREIGN KEY (replyer) REFERENCES tbl_member(userid);
+
+use test;
+SELECT * FROM My11;
