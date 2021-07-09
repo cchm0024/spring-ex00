@@ -15,7 +15,7 @@ import lombok.Setter;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-
+	
 	@Setter(onMethod_ = @Autowired)
 	private MemberMapper mapper;
 	
@@ -31,11 +31,13 @@ public class MemberServiceImpl implements MemberService {
 	@Setter(onMethod_ = @Autowired)
 	private PasswordEncoder encoder;
 	
+	
+
 	@Override
 	@Transactional
 	public boolean insert(MemberVO vo) {
 
-		// 패스워드의 암호화
+		// 패스워드 암호화
 		vo.setUserpw(encoder.encode(vo.getUserpw()));
 		int cnt = mapper.insert(vo);
 		
@@ -55,6 +57,20 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
+	public boolean modify(MemberVO vo, String oldPassword) {
+		MemberVO old = mapper.read(vo.getUserid());
+		
+		if(encoder.matches(oldPassword, old.getUserpw())) {
+			return modify(vo);
+			
+		}
+		
+		
+		
+		return false;
+	}
+	
+	@Override
 	public boolean modify(MemberVO vo) {
 		
 		vo.setUserpw(encoder.encode(vo.getUserpw()));
@@ -63,13 +79,29 @@ public class MemberServiceImpl implements MemberService {
 		
 		return cnt == 1;
 	}
-
+	@Override
+	public boolean remove(MemberVO vo, String oldPassword) {
+		MemberVO old = mapper.read(vo.getUserid());
+		if(encoder.matches(oldPassword, old.getUserpw())) {
+		
+			return remove(vo);
+		
+		}
+		
+		
+		return false;
+	}
+	
+	
 	@Override
 	@Transactional
 	public boolean remove(MemberVO vo) {
 		
 		// tbl_reply 삭제
 		replyMapper.removeByUserid(vo);
+		
+		// 본인 게시물의 다른 사람 댓글 삭제
+		replyMapper.removeByBnoByUserid(vo);
 		
 		// tbl_board_file 삭제
 		fileMapper.removeByUserid(vo);
@@ -85,5 +117,18 @@ public class MemberServiceImpl implements MemberService {
 		return cnt == 1;
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
